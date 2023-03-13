@@ -1,2 +1,2 @@
-# Expendutor-BE
-Expendutor Backend
+# nest-mongoose-starter
+Nest Mongoose Starter boiler template
