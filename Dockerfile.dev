@@ -1,0 +1,18 @@
+#Base image file
+FROM node:18-alpine
+
+#App Directory inside image
+WORKDIR /usr/src/app
+
+#Copy package.json and package-lock.json files to the app
+COPY package*.json ./
+
+#Install dependencies-- clean install is recommended in automated installations
+RUN npm ci
+
+#copy files and folders to image
+COPY . .
+
+#start command
+CMD [ "npm", "start:dev" ]
+

@@ -1,0 +1,23 @@
+name: Tests to check code on Push
+
+on: 
+  push:
+    branches: 
+      - main
+
+env: 
+  ## sample env variables
+  NODE_ENV: development
+  MONGO_URL: 'mongodb+srv://appname:password@cluster0.hn8ztve.mongodb.net/?retryWrites=true&w=majority'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: npm ci
+    # - name: Run Tests
+    #   run: npm run test

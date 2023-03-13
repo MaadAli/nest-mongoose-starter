@@ -1,0 +1,169 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "AppController_getHello",
+                "parameters": [],
+                "responses": { "200": { "description": "" } }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "operationId": "AuthController_login",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginDto"
+                            }
+                        }
+                    }
+                },
+                "responses": { "201": { "description": "" } },
+                "tags": ["auth"]
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "operationId": "AuthController_register",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateUsersDto"
+                            }
+                        }
+                    }
+                },
+                "responses": { "201": { "description": "" } },
+                "tags": ["auth"]
+            }
+        },
+        "/auth/authpoint": {
+            "get": {
+                "operationId": "AuthController_authEn",
+                "parameters": [],
+                "responses": { "200": { "description": "" } },
+                "tags": ["auth"],
+                "security": [{ "bearer": [] }]
+            }
+        },
+        "/auth/wauthpoint": {
+            "get": {
+                "operationId": "AuthController_wauthEn",
+                "parameters": [],
+                "responses": { "200": { "description": "" } },
+                "tags": ["auth"]
+            }
+        },
+        "/records/createRecord": {
+            "post": {
+                "operationId": "RecordsController_createRecord",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRecordsDto"
+                            }
+                        }
+                    }
+                },
+                "responses": { "201": { "description": "" } },
+                "tags": ["auth"],
+                "security": [{ "bearer": [] }]
+            }
+        },
+        "/records/getRecords": {
+            "get": {
+                "operationId": "RecordsController_getRecords",
+                "parameters": [],
+                "responses": { "200": { "description": "" } },
+                "tags": ["auth"],
+                "security": [{ "bearer": [] }]
+            }
+        },
+        "/records/getUserRecords": {
+            "get": {
+                "operationId": "RecordsController_getUserRecords",
+                "parameters": [],
+                "responses": { "200": { "description": "" } },
+                "tags": ["auth"],
+                "security": [{ "bearer": [] }]
+            }
+        }
+    },
+    "info": {
+        "title": "Expendutor",
+        "description": "Expendutor App Description",
+        "version": "1.0",
+        "contact": {}
+    },
+    "tags": [],
+    "servers": [],
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "type": "http"
+            }
+        },
+        "schemas": {
+            "LoginDto": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    }
+                },
+                "required": ["email", "password"]
+            },
+            "CreateUsersDto": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "This is a required property"
+                    }
+                },
+                "required": ["firstName", "lastName", "email", "password"]
+            },
+            "CreateRecordsDto": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is a required property"
+                    },
+                    "note": { "type": "string" },
+                    "type": { "type": "string" }
+                },
+                "required": ["amount", "note", "type"]
+            }
+        }
+    }
+}

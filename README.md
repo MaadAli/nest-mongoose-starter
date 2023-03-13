@@ -1,2 +1,2 @@
-# nest-mongoose-starter
-A nest boiler template with mongodb to start your projects
+# Expendutor-BE
+Expendutor Backend
