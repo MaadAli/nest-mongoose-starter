@@ -6,7 +6,6 @@ import { UsersService } from './users.service';
 import { Model } from 'mongoose';
 import { MockDatabase } from '../common/mocks/database.mock';
 
-
 describe('UsersService', () => {
   let service: UsersService;
   let mockModel: Model<UsersDocument>;
